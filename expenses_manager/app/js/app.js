@@ -5,3 +5,5 @@
  * Time: 4:50 PM
  * To change this template use File | Settings | File Templates.
  */
+
+var expMngApp = angular.module('expMngApp', ['expMngControllers']);
