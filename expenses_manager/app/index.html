@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="expMngApp">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
 
-    <script src="RGraph/libraries/RGraph.common.core.js"></script>
-    <script src="RGraph/libraries/RGraph.bar.js"></script>
+    <script src="js/controllers.js"></script>
 
-    <script src="js/ExpMng.js"></script>
     <script src="js/Utils.js"></script>
-    <script src="js/ExpenseList.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <title>Expenses Manager</title>
@@ -17,48 +14,31 @@
 <body>
 
 <h2>Expenses Manager</h2>
-<hr/>
 
-<div ng-controller="ExpMng">
 
-    <div id="inputDiv">
-        <button ng-click="loadRandom(5)">Load Random 5</button>
-        <input type="file">
+<div id="tableDiv" ng-controller="TableCtrl">
+    <h3>Expenses Table. Num of expenses: {{expList.length}}. </h3>
 
-        <form name="addExpForm" ng-submit="inputExp()">
-            <input type="date" name="date" ng-model="input.date" required>
-            <input type="number" name="amount" ng-model="input.amount" placeholder="Amount..." required>
-            <select ng-options="cat for cat in exps.categoriesSet" ng-model="input.category" ng-change="catChange()"
-                    required></select>
-            <input type="submit" value="Add..">
-        </form>
-    </div>
+    Search: <input ng-model="query">
 
-    <div id="tableDiv">
-        <h3>Expenses Table</h3>
-        <table id="box-table-a" ng-init="init()">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Category</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="exp in exps.expList | orderBy:'date'">
-                <td>{{ exp.date | date:MMM}}</td>
-                <td>{{ exp.amount }}</td>
-                <td>{{ exp.category }}</td>
-            </tr>
-            </tbody>
-        </table>
+    <table id="box-table-a">
+        <thead>
+        <tr>
+            <!--TODO: sorting is lexicographical but not logical-->
+            <th>Date<img ng-click="sort('date')" ng-src="icon/sort_{{sortChar('date')}}.png" height="12" width="12"></th>
+            <th>Amount<img ng-click="sort('amount')" ng-src="icon/sort_{{sortChar('amount')}}.png" height="12" width="12"></th>
+            <th>Category<img ng-click="sort('category')" ng-src="icon/sort_{{sortChar('category')}}.png" height="12" width="12"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="exp in expList | orderBy:orderProp|filter: query">
+            <td>{{ exp.date | date:MMM}}</td>
+            <td>{{ exp.amount }}</td>
+            <td>{{ exp.category }}</td>
+        </tr>
+        </tbody>
+    </table>
 
-    </div>
-
-    <div id="chartDiv">
-        <h3>Expenses Chart</h3>
-        <canvas id="cvs" width="600" height="250">[No canvas support]</canvas>
-    </div>
 </div>
 
 
