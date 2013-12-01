@@ -1,0 +1,57 @@
+{
+    margin: 20px;
+    /*padding: 20px;*/
+}
+h2 {
+    font-family: 'Skolar Bold', 'Droid Serif', Cambria, Georgia, 'Times New Roman', Times, serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Skolar Bold', 'Droid Serif', Cambria, Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#box-table-a {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 10px;
+    width: 350px;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+#box-table-a th {
+    font-size: 12px;
+    font-weight: normal;
+    background: #b9c9fe;
+    border-top: 4px solid #aabcfe;
+    border-bottom: 1px solid #fff;
+    color: #039;
+    padding: 8px;
+}
+
+#box-table-a td {
+    background: #e8edff;
+    border-bottom: 1px solid #fff;
+    color: #669;
+    border-top: 1px solid transparent;
+    padding: 4px;
+}
+
+#box-table-a tr:hover td {
+    background: #d0dafd;
+    color: #339;
+}
+
+#tableDiv {
+    float: left;
+}
+
+#chartDiv {
+    float: right;
+}

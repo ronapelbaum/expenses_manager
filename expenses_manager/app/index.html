@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
+
+    <script src="RGraph/libraries/RGraph.common.core.js"></script>
+    <script src="RGraph/libraries/RGraph.bar.js"></script>
+
+    <script src="js/ExpMng.js"></script>
+    <script src="js/Utils.js"></script>
+    <script src="js/ExpenseList.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <title>Expenses Manager</title>
+</head>
+<body>
+
+<h2>Expenses Manager</h2>
+<hr/>
+
+<div ng-controller="ExpMng">
+
+    <div id="inputDiv">
+        <button ng-click="loadRandom(5)">Load Random 5</button>
+        <input type="file">
+
+        <form name="addExpForm" ng-submit="inputExp()">
+            <input type="date" name="date" ng-model="input.date" required>
+            <input type="number" name="amount" ng-model="input.amount" placeholder="Amount..." required>
+            <select ng-options="cat for cat in exps.categoriesSet" ng-model="input.category" ng-change="catChange()"
+                    required></select>
+            <input type="submit" value="Add..">
+        </form>
+    </div>
+
+    <div id="tableDiv">
+        <h3>Expenses Table</h3>
+        <table id="box-table-a" ng-init="init()">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="exp in exps.expList | orderBy:'date'">
+                <td>{{ exp.date | date:MMM}}</td>
+                <td>{{ exp.amount }}</td>
+                <td>{{ exp.category }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="chartDiv">
+        <h3>Expenses Chart</h3>
+        <canvas id="cvs" width="600" height="250">[No canvas support]</canvas>
+    </div>
+</div>
+
+
+</body>
+</html>
