@@ -6,4 +6,15 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var expMngApp = angular.module('expMngApp', ['expMngControllers']);
+var expMngApp = angular.module('expMngApp', ['ngRoute', 'expMngControllers']);
+
+expMngApp.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+        when('/table',
+        {
+            templateUrl:'templates/table.html',
+            controller:'TableCtrl'
+        }).
+        otherwise({
+            redirectTo:'templates/temp.html'})
+}]);

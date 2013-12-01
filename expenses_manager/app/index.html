@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="expMngApp">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>-->
 
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
@@ -17,30 +18,7 @@
 <h2>Expenses Manager</h2>
 
 
-<div id="tableDiv" ng-controller="TableCtrl">
-    <h3>Expenses Table. Num of expenses: {{expList.length}}. </h3>
-
-    Search: <input ng-model="query">
-
-    <table id="box-table-a">
-        <thead>
-        <tr>
-            <!--TODO: sorting is lexicographical but not logical-->
-            <th>Date<img ng-click="sort('date')" ng-src="icon/sort_{{sortChar('date')}}.png" height="12" width="12"></th>
-            <th>Amount<img ng-click="sort('amount')" ng-src="icon/sort_{{sortChar('amount')}}.png" height="12" width="12"></th>
-            <th>Category<img ng-click="sort('category')" ng-src="icon/sort_{{sortChar('category')}}.png" height="12" width="12"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="exp in expList | orderBy:orderProp|filter: query">
-            <td>{{ exp.date | date:MMM}}</td>
-            <td>{{ exp.amount }}</td>
-            <td>{{ exp.category }}</td>
-        </tr>
-        </tbody>
-    </table>
-
-</div>
+<div ng-view></div>
 
 
 </body>
