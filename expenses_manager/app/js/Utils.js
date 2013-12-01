@@ -17,15 +17,20 @@ function randomDate() {
 function randomString(length) {
 //    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var category = '';
+    var str = '';
     for (var j = 0; j < length; j++)
-        category += possible.charAt(Math.floor(Math.random() * possible.length));
-    return category;
+        str += possible.charAt(Math.floor(Math.random() * possible.length));
+    return str;
+}
+
+function randomCategory() {
+    var possible = ['food', 'out', 'car', 'house', 'clothing'];
+    return possible[Math.floor(Math.random() * possible.length)];
 }
 
 
 function formatNum(num, digit) {
-    var base = 10 ^ (digit - 1);
+    var base = Math.pow(10 ,(digit - 1));
     var tmp = num;
     var res = '';
     while (tmp / base < 1) {
@@ -33,4 +38,16 @@ function formatNum(num, digit) {
         tmp *= 10;
     }
     return res + num;
+}
+
+function randomExp(num) {
+    var res = [];
+    for (var i = 0; i < num; i++) {
+        res.push({
+            date: randomDate(),
+            amount: Math.floor((Math.random() * 100) + 1),
+            category: randomCategory()
+        });
+    }
+    return res;
 }
