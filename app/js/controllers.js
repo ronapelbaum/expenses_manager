@@ -38,3 +38,29 @@ expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, 
     }
 
 }]);
+
+expMngControllers.controller('TrendCtrl', ['$scope', '$http', '$routeParams', '$filter', function ($scope, $http, $routeParams, $filter) {
+    $scope.catId = $routeParams.catId;
+
+    $http.get('data/category_trend.json').success(function (data) {
+        $scope.catList = data;
+        //TODO add failure method
+
+        //TODO we would like the Graph to update whenever a checkbox is set to true - display more than one trend
+        //$scope.chartedTrends = $filter('filter')($scope.catList, {show: true}, true);
+        $scope.chartedTrends = $filter('filter')($scope.catList, {category: $scope.catId}, true);
+        $scope.trendGraph = new RGraph.Line('cvs', $scope.chartedTrends[0].amount)
+            .Set('labels', $scope.chartedTrends[0].month)
+            .Draw();
+        //TODO fix y-axis labels
+        RGraph.Register($scope.trendGraph);
+    });
+
+
+    $scope.refresh = function () {
+        $scope.chartedTrends = $scope.getTrends();
+        RGraph.Redraw();
+    }
+
+
+}]);

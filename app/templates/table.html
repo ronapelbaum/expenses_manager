@@ -12,10 +12,10 @@ Search: <input ng-model="query">
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="exp in expList | orderBy:orderProp|filter: query">
+    <tr ng-repeat="exp in expList | orderBy:orderProp | filter: query">
         <td>{{ exp.date | date:MMM}}</td>
         <td>{{ exp.amount }}</td>
-        <td>{{ exp.category }}</td>
+        <td><a href="#/trend/{{ exp.category }}">{{ exp.category }}</a> </td>
     </tr>
     </tbody>
 </table>

@@ -1,0 +1,66 @@
+[
+    {
+        "category": "COMMUNICATION",
+        "amount": [0, 53, 50, 0],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 103,
+        "show": false
+    },
+    {
+        "category": "DONATION",
+        "amount": [630,672,0,180],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1482,
+        "show": false
+    },
+    {
+        "category": "GIFTS",
+        "amount": [0,319,710,60],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1089,
+        "show": true
+    },
+    {
+        "category": "HOME",
+        "amount": [3500,3542,3500,3800],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 10842,
+        "show": false
+    },
+    {
+        "category": "MISC",
+        "amount": [970,290,441,0],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1701,
+        "show": false
+    },
+    {
+        "category": "OUT",
+        "amount": [211,370,0,37],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 618,
+        "show": false
+    },
+    {
+        "category": "SHOPPING",
+        "amount": [1503,20,120,465],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1763,
+        "show": false
+    },
+    {
+        "category": "SUPERMARKET",
+        "amount": [121,4357,125,56],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 2954,
+        "show": false
+    },
+    {
+        "category": "TRANSPORTATION",
+        "amount": [0,0,42,433],
+        "month": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 2570,
+        "show": false
+    }
+
+]

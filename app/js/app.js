@@ -6,15 +6,27 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var expMngApp = angular.module('expMngApp', ['ngRoute', 'expMngControllers']);
+var expMngApp = angular.module('expMngApp', [
+    'ngRoute',
+    'expMngControllers',
+    'expMngFilters'
+]);
 
-expMngApp.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.
-        when('/table',
-        {
-            templateUrl:'templates/table.html',
-            controller:'TableCtrl'
-        }).
-        otherwise({
-            redirectTo:'templates/temp.html'})
-}]);
+expMngApp.config(['$routeProvider',
+    function ($routeProvider) {
+        $routeProvider.
+            when('/table',
+            {
+                templateUrl: 'templates/table.html',
+                controller: 'TableCtrl'
+            }).
+            when('/trend/:catId',
+            {
+                templateUrl: 'templates/trend.html',
+                controller: 'TrendCtrl'
+            }).
+
+            otherwise({
+                redirectTo: '/table'
+            });
+    }]);
