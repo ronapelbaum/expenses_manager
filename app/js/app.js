@@ -9,7 +9,8 @@
 var expMngApp = angular.module('expMngApp', [
     'ngRoute',
     'expMngControllers',
-    'expMngFilters'
+    'expMngFilters',
+    'expMngDirectives'
 ]);
 
 expMngApp.config(['$routeProvider',
@@ -25,7 +26,6 @@ expMngApp.config(['$routeProvider',
                 templateUrl: 'templates/trend.html',
                 controller: 'TrendCtrl'
             }).
-
             otherwise({
                 redirectTo: '/table'
             });
