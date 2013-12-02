@@ -44,8 +44,14 @@ h3 {
     padding: 4px;
 }
 
-#box-table-a tr:hover td {
+/*TODO color tables alternate line*/
+#box-table-a tr.alt td {
     background: #d0dafd;
+    color: #339;
+}
+
+#box-table-a tr:hover td {
+    background: #b9c9fe;
     color: #339;
 }
 
