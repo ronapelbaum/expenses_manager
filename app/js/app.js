@@ -26,6 +26,11 @@ expMngApp.config(['$routeProvider',
                 templateUrl: 'templates/trend.html',
                 controller: 'TrendCtrl'
             }).
+            when('/category-select',
+            {
+                templateUrl: 'templates/category-select.html',
+                controller: 'CategoryCtrl'
+            }).
             otherwise({
                 redirectTo: '/table'
             });

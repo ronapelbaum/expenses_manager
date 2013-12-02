@@ -64,3 +64,12 @@ expMngControllers.controller('TrendCtrl', ['$scope', '$http', '$routeParams', '$
 
 
 }]);
+
+expMngControllers.controller('CategoryCtrl', ['$scope', '$http', function ($scope, $http) {
+
+    $http.get('data/category_trend.json').success(function (data) {
+        $scope.catList = data;
+        //TODO add failure method
+    });
+
+}]);

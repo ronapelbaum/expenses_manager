@@ -1,0 +1,25 @@
+<h3>Categories</h3>
+<ul>
+    <li ng-repeat="cat in catList">
+        <input type="checkbox" ng-model="cat.show">
+        <span>{{cat.category}}</span>
+        <span>{{cat.show | checkmark}}</span>
+
+    </li>
+</ul>
+<hr/>
+<table id="box-table-a">
+    <thead>
+    <tr>
+        <th></th>
+        <th ng-repeat="mon in catList[0].month">{{mon}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="cat in catList | filter:{show:true}:true">
+        <td>{{ cat.category}}</td>
+        <td ng-repeat="amo in cat.amount track by $index">{{amo}}</td>
+    </tr>
+    </tbody>
+</table>
+
