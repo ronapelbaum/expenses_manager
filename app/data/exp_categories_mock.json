@@ -1,0 +1,66 @@
+[
+    {
+        "name": "COMMUNICATION",
+        "data": [0, 53, 50, 0],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 103,
+        "show": false
+    },
+    {
+        "name": "DONATION",
+        "data": [630,672,0,180],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1482,
+        "show": false
+    },
+    {
+        "name": "GIFTS",
+        "data": [0,319,710,60],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1089,
+        "show": false
+    },
+    {
+        "name": "HOME",
+        "data": [3500,3542,3500,3800],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 10842,
+        "show": false
+    },
+    {
+        "name": "MISC",
+        "data": [970,290,441,0],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1701,
+        "show": false
+    },
+    {
+        "name": "OUT",
+        "data": [211,370,0,37],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 618,
+        "show": false
+    },
+    {
+        "name": "SHOPPING",
+        "data": [1503,20,120,465],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 1763,
+        "show": false
+    },
+    {
+        "name": "SUPERMARKET",
+        "data": [121,4357,125,56],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 2954,
+        "show": false
+    },
+    {
+        "name": "TRANSPORTATION",
+        "data": [0,0,42,433],
+        "labels": ["Sep-13", "Oct-13", "Nov-13", "Dec-13"],
+        "total": 2570,
+        "show": false
+    }
+
+]

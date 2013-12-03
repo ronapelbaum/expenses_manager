@@ -8,6 +8,7 @@
 
 var expMngApp = angular.module('expMngApp', [
     'ngRoute',
+    'highcharts-ng',
     'expMngControllers',
     'expMngFilters',
     'expMngDirectives'
@@ -20,6 +21,10 @@ expMngApp.config(['$routeProvider',
             {
                 templateUrl: 'templates/table.html',
                 controller: 'TableCtrl'
+            }).
+            when('/trend',{
+                templateUrl: 'templates/trend.html',
+                controller: 'TrendCtrl'
             }).
             when('/trend/:catId',
             {

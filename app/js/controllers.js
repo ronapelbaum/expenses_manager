@@ -8,11 +8,10 @@
 var expMngControllers = angular.module('expMngControllers', []);
 
 expMngControllers.controller('navCtrl', ['$scope', function ($scope) {
-    //TODO get the current URL from real angular routing
-    $scope.selected = document.URL.search('table') > 0 ? 'table' : 'category-select';
-    $scope.navOptions = ['table', 'category-select'];
+    //TODO handle correct selected when refresh
+//    $scope.selected = document.URL.search('table') > 0 ? 'table' : 'category-select';
+    $scope.navOptions = ['table', 'category-select', 'trend'];
     $scope.select = function (nav) {
-        console.info("select: " + nav);
         $scope.selected = nav;
     };
 }]);
@@ -50,29 +49,53 @@ expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, 
 }]);
 
 expMngControllers.controller('TrendCtrl', ['$scope', '$http', '$routeParams', '$filter', function ($scope, $http, $routeParams, $filter) {
-    $scope.catId = $routeParams.catId;
 
-    $http.get('data/category_trend.json').success(function (data) {
+    $http.get('data/exp_categories_mock.json').success(function (data) {
         $scope.catList = data;
         //TODO add failure method
 
-        //TODO we would like the Graph to update whenever a checkbox is set to true - display more than one trend
-        //$scope.chartedTrends = $filter('filter')($scope.catList, {show: true}, true);
-        $scope.chartedTrends = $filter('filter')($scope.catList, {category: $scope.catId}, true);
-        $scope.trendGraph = new RGraph.Line('cvs', $scope.chartedTrends[0].amount)
-            .Set('labels', $scope.chartedTrends[0].month)
-            .Draw();
-        //TODO fix y-axis labels
-        RGraph.Register($scope.trendGraph);
+        if (undefined !== $routeParams.catId) {
+            for (var i = 0; i < $scope.catList.length; i++) {
+                if ($routeParams.catId.indexOf($scope.catList[i].name) >= 0) {
+                    $scope.catList[i].show = true;
+                }
+            }
+        }
+        //update trend chart
+        $scope.update();
     });
 
 
-    $scope.refresh = function () {
-        $scope.chartedTrends = $scope.getTrends();
-        RGraph.Redraw();
-    }
+    $scope.update = function () {
+        //update data
+        $scope.chartConfig.series = $filter('filter')($scope.catList, {show: true}, true);
+        //update x-axis
+        $scope.chartConfig.xAxis = {categories: $scope.catList[0].labels};
+    };
 
-
+    //TODO export to a separate object
+    $scope.chartConfig = {
+        options: {
+            chart: {
+                type: 'line'
+            }
+        },
+        series: [],
+        xAxis: {},
+        title: {
+            text: 'Hello'
+        },
+        tooltip: {
+            valueSuffix: 'NIS'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        loading: false
+    };
 }]);
 
 expMngControllers.controller('CategoryCtrl', ['$scope', '$http', function ($scope, $http) {

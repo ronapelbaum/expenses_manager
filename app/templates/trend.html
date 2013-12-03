@@ -1,7 +1,12 @@
 <h3>
-    Showing trend for: <i>{{catId}}</i>
+    Showing trend for: <i ng-repeat="cat in catList |filter: {show: true}:true "> '{{cat.name}}' </i>
 </h3>
 
-<hr/>
+<ul>
+    <li ng-repeat="cat in catList" style="list-style: none">
+        <input type="checkbox" ng-model="cat.show" ng-change="update()">
+        <span>{{cat.name}} </span>
+    </li>
+</ul>
 
-<canvas id="cvs" width="600" height="250">[No canvas support]</canvas>
+<highchart config="chartConfig"></highchart>
