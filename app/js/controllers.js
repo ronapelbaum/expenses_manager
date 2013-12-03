@@ -7,6 +7,16 @@
  */
 var expMngControllers = angular.module('expMngControllers', []);
 
+expMngControllers.controller('navCtrl', ['$scope', function ($scope) {
+    //TODO get the current URL from real angular routing
+    $scope.selected = document.URL.search('table') > 0 ? 'table' : 'category-select';
+    $scope.navOptions = ['table', 'category-select'];
+    $scope.select = function (nav) {
+        console.info("select: " + nav);
+        $scope.selected = nav;
+    };
+}]);
+
 expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('data/expenses.json').success(function (data) {
         $scope.expList = data;

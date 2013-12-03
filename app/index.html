@@ -21,9 +21,17 @@
 <body>
 
 <h2>Expenses Manager</h2>
-<a href="#/table">table</a>
-<a href="#/category-select">category-select</a>
-<div ng-view></div>
+
+<div ng-controller="navCtrl">
+    <ul id="header">
+        <li ng-repeat="nav in navOptions" id="selected-{{selected===nav}}">
+            <a href="#/{{nav}}" ng-click="select(nav)">{{nav}}</a>
+        </li>
+    </ul>
+    <div id="content">
+        <div ng-view></div>
+    </div>
+</div>
 
 
 </body>
