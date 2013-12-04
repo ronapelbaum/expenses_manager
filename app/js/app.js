@@ -20,16 +20,16 @@ expMngApp.config(['$routeProvider',
             when('/expenses',
             {
                 templateUrl: 'templates/expenses-table.html',
-                controller: 'expTableCtrl'
+                controller: 'expensesCtrl'
             }).
             when('/categories',{
                 templateUrl: 'templates/categories-trend.html',
-                controller: 'catTrendCtrl'
+                controller: 'categoriesCtrl'
             }).
             when('/categories/:catId',
             {
                 templateUrl: 'templates/categories-trend.html',
-                controller: 'catTrendCtrl'
+                controller: 'categoriesCtrl'
             }).
             otherwise({
                 redirectTo: '/expenses'
