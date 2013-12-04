@@ -17,19 +17,19 @@ var expMngApp = angular.module('expMngApp', [
 expMngApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
-            when('/table',
+            when('/expenses',
             {
-                templateUrl: 'templates/table.html',
-                controller: 'TableCtrl'
+                templateUrl: 'templates/expenses-table.html',
+                controller: 'expTableCtrl'
             }).
-            when('/trend',{
-                templateUrl: 'templates/trend.html',
-                controller: 'TrendCtrl'
+            when('/categories',{
+                templateUrl: 'templates/categories-trend.html',
+                controller: 'catTrendCtrl'
             }).
-            when('/trend/:catId',
+            when('/categories/:catId',
             {
-                templateUrl: 'templates/trend.html',
-                controller: 'TrendCtrl'
+                templateUrl: 'templates/categories-trend.html',
+                controller: 'catTrendCtrl'
             }).
             when('/category-select',
             {
@@ -37,6 +37,6 @@ expMngApp.config(['$routeProvider',
                 controller: 'CategoryCtrl'
             }).
             otherwise({
-                redirectTo: '/table'
+                redirectTo: '/expenses'
             });
     }]);

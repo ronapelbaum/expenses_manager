@@ -10,13 +10,13 @@ var expMngControllers = angular.module('expMngControllers', []);
 expMngControllers.controller('navCtrl', ['$scope', function ($scope) {
     //TODO handle correct selected when refresh
 //    $scope.selected = document.URL.search('table') > 0 ? 'table' : 'category-select';
-    $scope.navOptions = ['table', 'category-select', 'trend'];
+    $scope.navOptions = ['expenses', 'category-select', 'categories'];
     $scope.select = function (nav) {
         $scope.selected = nav;
     };
 }]);
 
-expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, $http) {
+expMngControllers.controller('expTableCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('data/exp_expenses_mock.json').success(function (data) {
         $scope.expList = data;
         //TODO add failure method
@@ -25,7 +25,7 @@ expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, 
 
 }]);
 
-expMngControllers.controller('TrendCtrl', ['$scope', '$http', '$routeParams', '$filter', function ($scope, $http, $routeParams, $filter) {
+expMngControllers.controller('catTrendCtrl', ['$scope', '$http', '$routeParams', '$filter', function ($scope, $http, $routeParams, $filter) {
 
     $http.get('data/exp_categories_mock.json').success(function (data) {
         $scope.catList = data;
