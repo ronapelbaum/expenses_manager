@@ -18,7 +18,7 @@ h3 {
     font-weight: bold;
 }
 
-#box-table-a {
+.my-table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 10px;
     width: 350px;
@@ -26,7 +26,7 @@ h3 {
     border-collapse: collapse;
 }
 
-#box-table-a th {
+.my-table th {
     font-size: 12px;
     font-weight: normal;
     background: #b9c9fe;
@@ -36,7 +36,7 @@ h3 {
     padding: 8px;
 }
 
-#box-table-a td {
+.my-table td {
     background: #e8edff;
     border-bottom: 1px solid #fff;
     color: #669;
@@ -45,12 +45,12 @@ h3 {
 }
 
 /*TODO color tables alternate line*/
-#box-table-a tr.alt td {
+.my-table tr.alt td {
     background: #d0dafd;
     color: #339;
 }
 
-#box-table-a tr:hover td {
+.my-table tr:hover td {
     background: #b9c9fe;
     color: #339;
 }
