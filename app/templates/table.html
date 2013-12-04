@@ -2,20 +2,4 @@
 
 Search: <input ng-model="query">
 
-<table class="my-table">
-    <thead>
-    <tr>
-        <!--TODO: sorting is lexicographical but not logical-->
-        <th>Date<img ng-click="sort('date')" ng-src="icon/sort_{{sortChar('date')}}.png" height="12" width="12"></th>
-        <th>Amount<img ng-click="sort('amount')" ng-src="icon/sort_{{sortChar('amount')}}.png" height="12" width="12"></th>
-        <th>Category<img ng-click="sort('category')" ng-src="icon/sort_{{sortChar('category')}}.png" height="12" width="12"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="exp in expList | orderBy:orderProp | filter: query">
-        <td>{{ exp.date | date:MMM}}</td>
-        <td>{{ exp.amount }}</td>
-        <td><a href="#/trend/{{ exp.category }}">{{ exp.category }}</a> </td>
-    </tr>
-    </tbody>
-</table>
+<sortable-table lines="expList" columns="columns" filter="query"></sortable-table>

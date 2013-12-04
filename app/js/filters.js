@@ -6,10 +6,18 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var expMngFilters= angular.module('expMngFilters', []);
+var expMngFilters = angular.module('expMngFilters', []);
 
 expMngFilters.filter('checkmark', function () {
     return function (input) {
         return input ? '\u2713' : '\u2718';
     };
+});
+
+expMngFilters.filter('get', function () {
+    //TODO is it really necessary to use this filter?
+    return function (obj, key) {
+        var res = obj[key];
+        return  res === undefined ? obj : res;
+    }
 });

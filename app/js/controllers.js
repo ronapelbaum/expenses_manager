@@ -21,30 +21,7 @@ expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, 
         $scope.expList = data;
         //TODO add failure method
     });
-
-    $scope.orderProp = 'Date';
-
-    $scope.sort = function (prop) {
-
-        if ($scope.orderProp === prop) {
-            $scope.orderProp = '-' + prop;
-        } else if ($scope.orderProp === '-' + prop) {
-            $scope.orderProp = '';
-        } else {
-            $scope.orderProp = prop;
-        }
-
-    };
-
-    $scope.sortChar = function (prop) {
-        var res = 'neutral';
-        if ($scope.orderProp === prop) {
-            res = 'down';
-        } else if ($scope.orderProp === '-' + prop) {
-            res = 'up';
-        }
-        return res;
-    }
+    $scope.columns = ['date', 'amount', 'category'];
 
 }]);
 

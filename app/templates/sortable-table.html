@@ -1,0 +1,18 @@
+<table class="my-table">
+    <thead>
+    <tr>
+        <th ng-repeat="col in columns">
+            {{col}}
+            <img ng-click="sort(col)" ng-src="icon/sort_{{sortChar(col)}}.png" height="12" width="12">
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--TODO: sorting is lexicographical but not logical-->
+    <tr ng-repeat="line in lines | orderBy : orderProp | filter: filterProp">
+        <td ng-repeat="col in columns">{{line|get:col}}</td>
+        <!--TODO how to create href only for on column?-->
+        <!--<a href="#/trend/{{ exp.category }}">{{ exp.category }}</a>-->
+    </tr>
+    </tbody>
+</table>
