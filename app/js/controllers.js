@@ -10,7 +10,7 @@ var expMngControllers = angular.module('expMngControllers', []);
 expMngControllers.controller('navCtrl', ['$scope', function ($scope) {
     //TODO handle correct selected when refresh
 //    $scope.selected = document.URL.search('table') > 0 ? 'table' : 'category-select';
-    $scope.navOptions = ['expenses', 'category-select', 'categories'];
+    $scope.navOptions = ['expenses', 'categories'];
     $scope.select = function (nav) {
         $scope.selected = nav;
     };
@@ -75,11 +75,3 @@ expMngControllers.controller('catTrendCtrl', ['$scope', '$http', '$routeParams',
     };
 }]);
 
-expMngControllers.controller('CategoryCtrl', ['$scope', '$http', function ($scope, $http) {
-
-    $http.get('data/category_trend.json').success(function (data) {
-        $scope.catList = data;
-        //TODO add failure method
-    });
-
-}]);

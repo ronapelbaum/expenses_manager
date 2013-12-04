@@ -7,16 +7,6 @@
  */
 var expMngDirectives = angular.module('expMngDirectives', []);
 
-expMngDirectives.directive('categorySelect', function () {
-    return {
-        restrict: 'E',
-        scope: {
-            category: '=info'
-        },
-        templateUrl: 'templates/category-detail.html'
-    }
-});
-
 expMngDirectives.directive('sortableTable', function () {
     return {
         restrict: 'E',

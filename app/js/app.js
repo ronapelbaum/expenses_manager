@@ -31,11 +31,6 @@ expMngApp.config(['$routeProvider',
                 templateUrl: 'templates/categories-trend.html',
                 controller: 'catTrendCtrl'
             }).
-            when('/category-select',
-            {
-                templateUrl: 'templates/category-select.html',
-                controller: 'CategoryCtrl'
-            }).
             otherwise({
                 redirectTo: '/expenses'
             });

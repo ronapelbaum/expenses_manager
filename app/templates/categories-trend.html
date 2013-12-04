@@ -9,4 +9,19 @@
     </li>
 </ul>
 
-<highchart config="chartConfig"></highchart>
+<highchart config="chartConfig" style="position: relative; width:50%; float: left"></highchart>
+
+<table class="my-table" style="position: relative; width:50%; float: right">
+    <thead>
+    <tr>
+        <th></th>
+        <th ng-repeat="label in catList[0].labels">{{label}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="cat in catList | filter:{show:true}:true">
+        <td>{{ cat.name}}</td>
+        <td ng-repeat="val in cat.data track by $index">{{val}}</td>
+    </tr>
+    </tbody>
+</table>
