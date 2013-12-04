@@ -17,7 +17,7 @@ expMngControllers.controller('navCtrl', ['$scope', function ($scope) {
 }]);
 
 expMngControllers.controller('TableCtrl', ['$scope', '$http', function ($scope, $http) {
-    $http.get('data/expenses.json').success(function (data) {
+    $http.get('data/exp_expenses_mock.json').success(function (data) {
         $scope.expList = data;
         //TODO add failure method
     });
