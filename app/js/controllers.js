@@ -10,7 +10,7 @@ var expMngControllers = angular.module('expMngControllers', []);
 expMngControllers.controller('navigationCtrl', ['$scope', function ($scope) {
     //TODO handle correct selected when refresh
 //    $scope.selected = document.URL.search('table') > 0 ? 'table' : 'category-select';
-    $scope.navOptions = ['expenses', 'categories'];
+    $scope.navOptions = ['expenses', 'expensesPivot', 'categories'];
     $scope.select = function (nav) {
         $scope.selected = nav;
     };
@@ -18,10 +18,21 @@ expMngControllers.controller('navigationCtrl', ['$scope', function ($scope) {
 
 expMngControllers.controller('expensesCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('data/exp_expenses_mock.json').success(function (data) {
-        $scope.expList = data;
+        $scope.rows = data;
         //TODO add failure method
     });
     $scope.columns = ['date', 'amount', 'category'];
+
+}]);
+
+expMngControllers.controller('expensesPivotCtrl', ['$scope', '$http', function ($scope, $http) {
+    $http.get('data/exp_expenses_mock.json').success(function (data) {
+        var pivot = new Pivot(data, 'category', 'month', 'amount');
+        $scope.rows = pivot.pivotRows;
+        $scope.columns = pivot.pivotColumns;
+    });
+    $scope.columns = ['category'];
+
 
 }]);
 

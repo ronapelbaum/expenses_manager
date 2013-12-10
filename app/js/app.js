@@ -22,6 +22,11 @@ expMngApp.config(['$routeProvider',
                 templateUrl: 'templates/expenses-table.html',
                 controller: 'expensesCtrl'
             }).
+            when('/expensesPivot',
+            {
+                templateUrl: 'templates/expenses-table.html',
+                controller: 'expensesPivotCtrl'
+            }).
             when('/categories',{
                 templateUrl: 'templates/categories-trend.html',
                 controller: 'categoriesCtrl'
