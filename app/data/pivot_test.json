@@ -1,0 +1,32 @@
+[
+    {
+        "category":"aaa",
+        "month":1,
+        "amount":20
+    },
+    {
+        "category":"aaa",
+        "month":1,
+        "amount":20
+    },
+    {
+        "category":"ddd",
+        "month":1,
+        "amount":20
+    },
+    {
+        "category":"sss",
+        "month":2,
+        "amount":30
+    },
+    {
+        "category":"ddd",
+        "month":2,
+        "amount":30
+    },
+    {
+        "category":"aaa",
+        "month":2,
+        "amount":30
+    }
+]
