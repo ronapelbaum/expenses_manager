@@ -12,7 +12,7 @@ expMngDirectives.directive('sortableTable', function () {
         restrict: 'E',
         scope: {
             columns: "=",
-            lines: "=",
+            rows: "=",
             filterProp:"=filter"
         },
         templateUrl: 'templates/sortable-table.html',
