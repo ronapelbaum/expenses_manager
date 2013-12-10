@@ -10,7 +10,7 @@
     <tbody>
     <!--TODO: sorting is lexicographical but not logical-->
     <tr ng-repeat="line in lines | orderBy : orderProp | filter: filterProp">
-        <td ng-repeat="col in columns">{{line|get:col}}</td>
+        <td ng-repeat="col in columns">{{line|get:col:0}}</td>
         <!--TODO how to create href only for on column?-->
         <!--<a href="#/trend/{{ exp.category }}">{{ exp.category }}</a>-->
     </tr>

@@ -16,8 +16,8 @@ expMngFilters.filter('checkmark', function () {
 
 expMngFilters.filter('get', function () {
     //TODO is it really necessary to use this filter?
-    return function (obj, key) {
+    return function (obj, key, def) {
         var res = obj[key];
-        return  res === undefined ? obj : res;
+        return  res === undefined ? def : res;
     }
 });
