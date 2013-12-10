@@ -44,15 +44,24 @@ expMngControllers.controller('categoriesCtrl', ['$scope', '$http', '$routeParams
 
 
     $scope.update = function () {
-        //update data
-        $scope.chartConfig.series = $filter('filter')($scope.catList, {show: true}, true);
-        //update x-axis
-        $scope.chartConfig.xAxis = {categories: $scope.catList[0].labels};
+            //update data
+            $scope.chartConfig.series = $filter('filter')($scope.catList, {show: true}, true);
+            //update x-axis
+            $scope.chartConfig.xAxis = {categories: $scope.catList[0].labels};
     };
 
-    //TODO export to a separate object
+    //TODO export to a separate object - maybe json
     $scope.chartConfig = {
         options: {
+            tooltip: {
+                valueSuffix: ' NIS'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 1
+            },
             chart: {
                 type: 'line'
             }
@@ -60,17 +69,9 @@ expMngControllers.controller('categoriesCtrl', ['$scope', '$http', '$routeParams
         series: [],
         xAxis: {},
         title: {
-            text: 'Hello'
+            text: 'Chart'
         },
-        tooltip: {
-            valueSuffix: 'NIS'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
+
         loading: false
     };
 }]);
