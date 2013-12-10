@@ -24,7 +24,7 @@ function Pivot(data, rowAtt, colAtt, valAtt) {
         var rowVal = dataEntry[rowAtt];
         var colVal = dataEntry[colAtt];
         if (this.pivotColumns.indexOf(colVal) < 0)this.pivotColumns.push(colVal);
-        var valVal = dataEntry[valAtt];
+        var valVal = +dataEntry[valAtt];
         //map pivotMap by rowVal
         if (pivotMap[rowVal] === undefined) {
             //create row
@@ -36,7 +36,6 @@ function Pivot(data, rowAtt, colAtt, valAtt) {
             pivotMap[rowVal][colVal] = 0;
         }
         //sum the values
-        //TODO fix adding for strings
         pivotMap[rowVal][colVal] += valVal;
     }
 
